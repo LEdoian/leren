@@ -5,8 +5,8 @@
 
 int main(void) {
 	LER_init();
-	struct LER_field_s *field = LER_create_field(WIDTH, HEIGHT); //FIXME: Should typedef it somewhere
-	struct LER_robot_s *robot = LER_spawn_robot(0,0,field);
+	LER_field_t * field = LER_create_field(WIDTH, HEIGHT); //FIXME: Should typedef it somewhere
+	LER_robot_t * robot = LER_spawn_robot(0,0,field);
 	while (1) {
 		LER_go(robot);
 	}
