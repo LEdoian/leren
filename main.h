@@ -34,8 +34,8 @@ enum LER_rot_e {
 };
 
 struct LER_robot_s {
-	unsigned int x;
-	unsigned int y;
+	int x;
+	int y;
 	struct LER_field_s * field;
 	enum LER_ori_e ori;
 };
@@ -49,10 +49,10 @@ typedef struct LER_robot_s LER_robot_t;
 
 int LER_init(void/*??*/);
 LER_field_t * LER_create_field(unsigned int width, unsigned int height);
-LER_robot_t * LER_spawn_robot(unsigned int x, unsigned int y, struct LER_field_s * field);
-void LER_go(struct LER_robot_s * robot);
+LER_robot_t * LER_spawn_robot(unsigned int x, unsigned int y, LER_field_t * field);
+void LER_go(LER_robot_t * robot);
 //void LER_wall_handler(/*a pointer to function to be run when a robot collides into a wall. Possible parameters: x, y, field, robot*/);
-void LER_turn(struct LER_robot_s * robot, enum LER_rot_e rot);
+void LER_turn(LER_robot_t * robot, LER_rot_t rot);
 
 
 #endif /*ifndef LER_MAIN_H*/

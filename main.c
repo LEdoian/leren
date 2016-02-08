@@ -34,4 +34,61 @@ LER_field_t * LER_create_field(unsigned int width, unsigned int height) {
 	return field;
 }
 
+LER_robot_t * LER_spawn_robot(unsigned int x, unsigned int y, LER_field_t * field) {
+	LER_robot_t * robot = malloc(sizeof(LER_robot_t));
+	robot->x = x;
+	robot->y = y;
+	robot->field = field;
+	robot->ori = NORTH;
+
+	return robot;
+}
+
+void LER_go(LER_robot_t * robot) {
+	switch (robot->ori) {
+		case NORTH:
+			robot->y++;
+		break;
+		case EAST:
+			robot->x++;
+		break;
+		case SOUTH:
+			robot->y--;
+		break;
+		case WEST:
+			robot->x--;
+		break;
+	}
+
+	//Check the bounds and walls, NYI (call the function to handle wall crashes)
+	/*
+	if (x < 0) ...
+	if (y < 0) ...
+	if (x > robot->field->width) ...
+	if (y > robot->field->height) ...
+	if ( robot->field->cells[robot->x][robot->y].wall == true ) ...
+	*/
+
+	return;
+}
+
+void LER_turn(LER_robot_t * robot, LER_rot_t rot) {
+	if (rot == CW) {
+		switch (robot->ori) {
+			case NORTH: robot->ori = EAST; break;
+			case EAST: robot->ori = SOUTH; break;
+			case SOUTH: robot->ori = WEST; break;
+			case WEST: robot->ori = NORTH; break;
+		}
+	} else if (rot == CCW) {
+		switch (robot->ori) {
+			case NORTH: robot->ori = WEST; break;
+			case EAST: robot->ori = NORTH; break;
+			case SOUTH: robot->ori = EAST; break;
+			case WEST: robot->ori = SOUTH; break;
+		}
+	}
+
+	return;
+}
 
