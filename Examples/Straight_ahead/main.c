@@ -1,0 +1,14 @@
+#include "../../main.h"		//FIXME: This is obviously wrong.... (It works, but you have to make the environment and then the example)
+
+#define WIDTH 10
+#define HEIGHT 10
+
+int main(void) {
+	LER_init();
+	struct LER_field_s *field = LER_create_field(WIDTH, HEIGHT); //FIXME: Should typedef it somewhere
+	struct LER_robot_s *robot = LER_spawn_robot(0,0,field);
+	while (1) {
+		LER_go(robot);
+	}
+	return 0;		// Never happens
+}

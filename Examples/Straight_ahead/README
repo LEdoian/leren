@@ -1,0 +1,8 @@
+Examples/Straight_ahead
+=======================
+This example robot goes just straight ahead, does not read any sensors
+whatsoever and (hopefully) gets terminated by the environment with some error
+message.
+
+Make with make using the Makefile provided, then run main.x.
+
