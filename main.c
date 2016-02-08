@@ -14,7 +14,7 @@ int LER_init(void) {
 
 
 LER_field_t * LER_create_field(unsigned int width, unsigned int height) {
-	LE_field_t * field = malloc(sizeof(LE_field_t));
+	LER_field_t * field = malloc(sizeof(LER_field_t));
 	field->width = width;
 	field->height = height;
 
@@ -22,7 +22,7 @@ LER_field_t * LER_create_field(unsigned int width, unsigned int height) {
 	field->cells = malloc(width*sizeof(LER_cell_t *));
 	int i;
 	for ( i=0 ; i<width ; i++ ) {
-		field->cells[i] = malloc(height*sizeof(LE_cell_t));
+		field->cells[i] = malloc(height*sizeof(LER_cell_t));
 		int j;
 		for ( j=0 ; j<height ; j++) {
 			field -> cells[i][j].x = i;
