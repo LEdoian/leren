@@ -18,19 +18,19 @@ struct LER_cell_s {
 struct LER_field_s {
 	unsigned int width;
 	unsigned int height;
-	struct LER_cell_s ** cells;
+	struct LER_cell_s * * cells;
 };
 
 enum LER_ori_e {
-	NORTH;
-	EAST;
-	SOUTH;
-	WEST;
+	NORTH,
+	EAST,
+	SOUTH,
+	WEST,
 };
 
 enum LER_rot_e {
-	CW;
-	CCW;
+	CW,
+	CCW,
 };
 
 struct LER_robot_s {
@@ -40,11 +40,18 @@ struct LER_robot_s {
 	enum LER_ori_e ori;
 };
 
+// Typedefs!!
+typedef struct LER_cell_s LER_cell_t;
+typedef struct LER_field_s LER_field_t;
+typedef enum LER_ori_e LER_ori_t;
+typedef enum LER_rot_e LER_rot_t;
+typedef struct LER_robot_s LER_robot_t;
+
 int LER_init(void/*??*/);
-struct LER_field_s * LER_create_field(unsigned int width, unsigned int height);
-struct LER_robot_s * LER_spawn_robot(unsigned int x, unsigned int y, struct LER_field_s * field);
+LER_field_t * LER_create_field(unsigned int width, unsigned int height);
+LER_robot_t * LER_spawn_robot(unsigned int x, unsigned int y, struct LER_field_s * field);
 void LER_go(struct LER_robot_s * robot);
-void LER_wall_handler(/*a pointer to function to be run when a robot collides into a wall. Possible parameters: x, y, field, robot*/);
+//void LER_wall_handler(/*a pointer to function to be run when a robot collides into a wall. Possible parameters: x, y, field, robot*/);
 void LER_turn(struct LER_robot_s * robot, enum LER_rot_e rot);
 
 
