@@ -2,21 +2,21 @@ COMPILER=gcc
 COMPILEROPTS=-Wall -Werror
 
 CFILES=main.c
-OFLILES=main.o
+OFILES=main.o
 
 .DEFAULT_GOAL=libleren.so
 
 libleren.so: libleren.so.1
 	ln -s $< $@
 
-libleren.so.1: $(OFLIES)
+libleren.so.1: $(OFILES)
 	$(COMPILER) -shared -o $@ $^
 
 libleren.a: $(OFILES)
 	ar rcs $@ $^
 
 %.o: %.c
-	$(COMPILER) $(COMPILEROPTS) -c -fpic -o $@ $*
+	$(COMPILER) $(COMPILEROPTS) -c -fpic -o $@ $<
 
 .PHONY: clean all
 
