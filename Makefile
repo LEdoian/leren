@@ -23,10 +23,10 @@ libleren.a: $(OFILES)
 all: libleren.so libleren.a doc
 
 clean:
-	rm *.o
-	rm *.a
-	rm *.so*
-	rm -r doc/
+	rm *.o ||:
+	rm *.a ||:
+	rm *.so* ||:
+	rm -r doc/ ||:
 
 doc:
 	mkdir doc
