@@ -20,7 +20,7 @@ libleren.a: $(OFILES)
 
 .PHONY: clean all
 
-all: libleren.so libleren.a
+all: libleren.so libleren.a doc
 
 clean:
 	rm *.o
