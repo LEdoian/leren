@@ -23,4 +23,12 @@ libleren.a: $(OFILES)
 all: libleren.so libleren.a
 
 clean:
-	rm *.o *.a *.so*
+	rm *.o
+	rm *.a
+	rm *.so*
+	rm -r doc/
+
+doc:
+	mkdir doc
+	doxygen
+
